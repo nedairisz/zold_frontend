@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import useAdatContext from "../contexts/AdatContext";
 
 export default function Hozzaadas() {
-  const { tevekenyseLista, setBejegyzeslista, postAdat } = useAdatContext();
+  const { tevekenysegLista, setBejegyzeslista, postAdat } = useAdatContext();
   const osztalyLista = ["10A", "7B", "11C", "10B", "12A"];
 
-  const { osztaly, setOsztaly } = useState("Válassz");
-  const { tevekenyseg, setTevekenyseg } = useState("Válassz");
+  const [osztaly, setOsztaly] = useState("Válassz");
+  const [tevekenyseg, setTevekenyseg] = useState("Válassz");
 
   function hozzaad(event) {
     event.preventDefault();
@@ -37,22 +37,19 @@ export default function Hozzaadas() {
           );
         })}
       </select>
-      <select
-        id="tevekenyseg"
-        name="tevekenyeg"
-        onChange={(event) => setTevekenyseg(event.target.value)}
-      >
+      <select id="tevekenyseg" name="tevekenyeg"
+        onChange={(event) => setTevekenyseg(event.target.value)}>
+
         <option value="valassz">Válassz tevékenységet!</option>
-        {osztalyLista.map((element, index) => {
-          return (
-            <option key={index} value={element}>
-              {element}
-            </option>
-          );
-        })}
+        {tevekenysegLista.map((tevekenyseg) => (
+          <option key={tevekenyseg.tevekenyseg_id} value={tevekenyseg.tevekenyseg_id}>
+            {tevekenyseg.tevekenyseg_nev}
+          </option>
+        ))}
       </select>
-      <input type="submit" className="btn btn-success" value="Küld" id="submit"
-      />
+
+      <input type="submit" className="btn btn-success" value="Hozzáad" id="submit"/>
+
     </form>
   );
 }
