@@ -4,6 +4,7 @@ import Hozzaadas from "../src/components/Hozaadas";
 import Szamlalo from "../src/components/Szamlalo";
 import Nav from "../src/components/Nav";
 
+
 function App() {
   return (
     <div className="App">

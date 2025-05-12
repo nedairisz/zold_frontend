@@ -2,20 +2,21 @@ import React from "react";
 import useAdatContext from "../contexts/AdatContext";
 
 export default function Szamlalo() {
-  const { bejegyzesLista } = useAdatContext(); // Get bejegyzesLista from context
+  const { bejegyzesLista } = useAdatContext(); 
 
-  // Calculate total points for each class
+
   const calculateTotalPoints = (osztaly) => {
     return bejegyzesLista
       .filter((bejegyzes) => bejegyzes.osztaly_nev === osztaly)
-      .reduce((total, bejegyzes) => total + bejegyzes.pontszam, 0); // Sum the points for the class
+      .reduce((total, bejegyzes) => total + bejegyzes.pontszam, 0); 
   };
 
-  // Get the list of unique classes (osztaly)
+  
   const osztalyLista = ["10A", "7B", "11C", "10B", "12A"];
 
   return (
-    <table>
+    <div style={{ padding: "3em", border: "1px solid #ccc", borderRadius: "8px" }}>
+    <table className="table table-striped">
       <thead>
         
           <th>Osztály</th>
@@ -34,5 +35,6 @@ export default function Szamlalo() {
         })}
       </tbody>
     </table>
+    </div>
   );
 }
