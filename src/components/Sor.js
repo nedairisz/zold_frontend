@@ -1,16 +1,12 @@
 import React from 'react';
-import useAdatContext from '../contexts/AdatContext';
 
-export default function Sor(){
+export default function Sor({adat}){
     return(
         <tr>
-            <td>
-
-                
-            </td>
-            <td></td>
-            <td></td>
-
+            <td>{adat.id}</td>
+            <td>{adat.osztaly.osztaly_nev}</td>
+            <td>{adat.tevekenyseg.tevekenyseg_nev}</td>
+            
         </tr>
     );
 }
