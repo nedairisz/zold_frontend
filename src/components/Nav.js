@@ -8,7 +8,7 @@ export default function Nav() {
     <nav className="my-3">
       <ul className="nav">
         <li className="nav-item">
-          <Link  className="nav-link" to="/publikus">Publikus</Link>
+          <Link  className="nav-link" to="/">Publikus</Link>
         </li>
         <li>
           <Link className="nav-link" to="/admin">Admin</Link>
